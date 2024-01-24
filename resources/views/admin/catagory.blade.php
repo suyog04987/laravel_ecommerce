@@ -18,7 +18,14 @@
        @include('admin.navbar')
         <!-- partial -->
         
-        @include('admin.body')
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+
+
+          </div>
+        </div>
 
     <!-- plugins:js -->
     @include('admin.js')
