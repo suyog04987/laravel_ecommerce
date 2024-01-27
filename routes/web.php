@@ -29,6 +29,19 @@ Route::get('/dashboard', function () {
 Route::get('/view_catagory',[AdminController::class,'view_catagory'],'view_catagory');
 
 
+Route::post('/add_catagory',[AdminController::class,'add_catagory'],'add_catagory');
+
+Route::get('/delete_catagory/{id}',[AdminController::class,'delete_catagory'],'delete_catagory');
+
+Route::get('/view_product',[AdminController::class,'view_product'],'view_product');
+
+Route::post('/add_product',[AdminController::class,'add_product'],'add_product');
+Route::get('/show_product',[AdminController::class,'show_product'],'show_product');
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
