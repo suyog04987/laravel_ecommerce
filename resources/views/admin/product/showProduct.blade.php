@@ -16,6 +16,7 @@
     </style>
   </head>
   <body>
+  
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
      @include('admin.sidebar')
@@ -28,6 +29,14 @@
           <div class="content-wrapper">
 
           <div class="container">
+          @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+        <@endif
             @foreach($newProduct as $product)
         <h2>{{ $product->title }}</h2>
         
@@ -37,16 +46,20 @@
             </div>
             <div class="col-md-6">
                 <p><strong>Description:</strong> {{ $product->description }}</p>
-                <p><strong>Category:</strong> {{ $product->category }}</p>
+                <p><strong>Category:</strong> {{ $product->catagory }}</p>
                 <p><strong>Quantity:</strong> {{ $product->quantity }}</p>
                 <p><strong>Price:</strong> ${{ $product->price }}</p>
                 @if($product->discount_price)
                     <p><strong>Discount Price:</strong> ${{ $product->discount_price }}</p>
                 @endif
+                <p><a  onclick="return confirm('Are you Sure To Delete')" href="{{url('/delete_product',$product->id)}}"> <button class="btn btn-primary">Delete</button></a>
+                <a href="{{url('/edit_product', ['product'=>$product])}}"> <button class="btn btn-danger"> Edit</button></a>
+              </p> 
             </div>
         </div>
         @endforeach
-
+        <br>
+        <br>
         <a href="{{ url('/view_product') }}" class="btn btn-primary">Back to Products</a>
     </div>
 

@@ -38,6 +38,15 @@ Route::get('/view_product',[AdminController::class,'view_product'],'view_product
 Route::post('/add_product',[AdminController::class,'add_product'],'add_product');
 Route::get('/show_product',[AdminController::class,'show_product'],'show_product');
 
+Route::get('/delete_product/{id}',[AdminController::class,'delete_product'],'delete_product');
+
+Route::get('/edit_product/{product}',[AdminController::class,'edit_product'],'edit_product');
+
+Route::post('/update_product/{id}',[AdminController::class,'update_product'],'update_product');
+
+
+
+
 
 
 
