@@ -20,9 +20,7 @@
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
-                                    Shop Now
-                                    </a>
+                                  <button  class="btn btn-primary" onclick="scrollToProductSection()">Shop Now</button>
                                  </div>
                               </div>
                            </div>
@@ -45,9 +43,7 @@
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
-                                    Shop Now
-                                    </a>
+                                 <button  class="btn btn-primary" onclick="scrollToProductSection()">Shop Now</button>
                                  </div>
                               </div>
                            </div>
@@ -70,9 +66,7 @@
                                     Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
-                                    <a href="" class="btn1">
-                                    Shop Now
-                                    </a>
+                                 <button  class="btn btn-primary" onclick="scrollToProductSection()">Shop Now</button>
                                  </div>
                               </div>
                            </div>
@@ -89,3 +83,12 @@
                </div>
             </div>
          </section>
+         <script>
+         // script.js
+
+         function scrollToProductSection() {
+         const productSection = document.getElementById('product');
+         productSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+      </script>

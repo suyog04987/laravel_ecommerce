@@ -6,7 +6,7 @@
                </h2>
             </div>
             
-            <div class="row">
+            <div class="row" id="product">
                @foreach ($products as $product)
                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="box">
@@ -19,7 +19,7 @@
                            @csrf
                               <div class="row">
                                  <div class="col-md-4">
-                                    <input type="number" name="quantity" value="1" min="1" style="width:50px">
+                                    <input type="number" name="quantity" value="1" min="1" style="width:70px">
                                  </div>
                                  <div class="col-md-4">
                                     <input type="submit" value="Add To Cart">

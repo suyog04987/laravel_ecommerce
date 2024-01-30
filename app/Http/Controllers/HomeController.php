@@ -26,8 +26,9 @@ class HomeController extends Controller
         }
         else{
             $products=product::paginate(6);
+            $user=User::all();
             // $product->withQueryString();
-            return view('home.userpage',compact('products'));
+            return view('home.userpage',compact('products'),compact('user'));
         }
 
     }
@@ -72,5 +73,25 @@ class HomeController extends Controller
             return redirect('login');
         }
     }
+
+    public function show_cart(){
+        if(Auth::id())
+        {
+        $id = Auth::user()->id;
+        $cart= Cart::where('user_id','=',$id)->get();
+
+        return view('home.showCart',compact('cart'));
+        }else{
+        return redirect('login');
+        }
+    }    
+
+    public function remove_cart($id){
+        $remove=Cart::find($id);
+        $remove->delete();
+        return redirect()->back();
+
+    }
+
 }
 
