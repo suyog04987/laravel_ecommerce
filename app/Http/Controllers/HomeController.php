@@ -7,6 +7,8 @@ use App\Models\User;
 Use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
+use Illuminate\Queue\Jobs\RedisJob;
 
 class HomeController extends Controller
 {
@@ -66,6 +68,7 @@ class HomeController extends Controller
             $cart->quantity=$request->quantity;
 
             $cart->save();
+            
 
             return redirect()->back();
         }
@@ -91,6 +94,42 @@ class HomeController extends Controller
         $remove->delete();
         return redirect()->back();
 
+    }
+
+    public function cash_pay(){
+        $user = Auth::User()->id;
+        $data=Cart::where('user_id','=',$user)->get();
+
+        foreach($data as $data)
+        {
+            $order= new Order();
+            $order->name=$data->name;
+            $order->email=$data->email;
+            $order->phone=$data->phone;
+            $order->address=$data->address;
+            $order->user_id=$data->user_id;
+            $order->product_title=$data->product_title;
+            $order->price=$data->price;
+            $order->quantity=$data->quantity;
+            $order->image=$data->image;
+            $order->Product_id=$data->Product_id;
+
+            $order->payment_status='cash on delivary';
+
+            $order->delivery_status='processing';
+
+            $order->save();
+             
+            $cart_id=$data->id;
+            $cart= Cart::find($cart_id);
+            $cart->delete();
+
+           
+
+
+        }
+        return redirect()->back()->with('message','We have Received Your Order');
+ 
     }
 
 }

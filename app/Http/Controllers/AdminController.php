@@ -106,4 +106,9 @@ class AdminController extends Controller
 
 
     }
+
+    public function view_order() {
+        return view('admin.viewOrder');
+        
+    }
 }

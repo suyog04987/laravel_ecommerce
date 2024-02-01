@@ -49,6 +49,15 @@
          <!-- header section strats -->
         @include('home.header')
          <!-- end header section -->
+         @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
     
       <div class="center">
         <table>
@@ -73,6 +82,11 @@
         </table>
         <div style="padding-top: 30px;">
             <h1 style="font-weight: bold;"><span style="color: blue;">Total Price:</span> ${{$totalPrice}}</h1>
+        </div>
+        <div>
+            <h1 style="font-weight: bold; margin:8px;">Proceede To Order</h1>
+            <a href="{{url('cash_pay')}}" class="btn btn-primary"> Cash On Delivary</a>
+            <a href="{{url('card_pay')}}" class="btn btn-primary"> Pay Using Card</a>
         </div>
       </div>
      

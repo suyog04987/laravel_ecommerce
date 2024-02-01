@@ -87,6 +87,15 @@
               <span class="menu-title">Catagory</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('view_orders')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table"></i>
+              </span>
+              <span class="menu-title">Orders</span>
+            </a>
+          </li>
           
         </ul>
       </nav>

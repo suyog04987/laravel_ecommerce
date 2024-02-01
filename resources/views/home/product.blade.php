@@ -22,7 +22,7 @@
                                     <input type="number" name="quantity" value="1" min="1" style="width:70px">
                                  </div>
                                  <div class="col-md-4">
-                                    <input type="submit" value="Add To Cart">
+                                    <input type="submit"  onclick="scrollToProductSection()" value="Add To Cart">
                                  </div>
                               </div>
 
@@ -54,3 +54,12 @@
             </div> -->
          </div>
       </section>
+      <script>
+         // script.js
+
+         function scrollToProductSection() {
+         const productSection = document.getElementById('product');
+         productSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+      </script>
