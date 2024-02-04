@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Catagory;
 use App\Models\Product;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -108,7 +109,14 @@ class AdminController extends Controller
     }
 
     public function view_order() {
-        return view('admin.viewOrder');
+        $order=Order::all();
+        return view('admin.viewOrder', compact('order'));
         
+    }
+    public function remove_order($id){
+        $remove=Order::find($id);
+        $remove->delete();
+        return redirect()->back();
+
     }
 }
