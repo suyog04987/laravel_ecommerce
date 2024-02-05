@@ -43,6 +43,18 @@
         width: 300px;
         height: auto;
       }
+      .empty{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+      }
+      .para{
+        text-align: center;
+        font-size: 1.5em;
+        color: #333; 
+      }
+
    </style>
    <body>
       <div class="hero_area">
@@ -60,6 +72,12 @@
 
     
       <div class="center">
+      @if($cart->isEmpty())
+        <div class="empty">
+            <p class="para">No Product in the Cart</p>
+    </div>
+            
+        @else
         <table>
             <tr>
                 <th  class="th_deg">Product Title</th>
@@ -80,6 +98,7 @@
             <?php $totalPrice=$totalPrice+$data->price ?>
             @endforeach
         </table>
+     
         <div style="padding-top: 30px;">
             <h1 style="font-weight: bold;"><span style="color: blue;">Total Price:</span> ${{$totalPrice}}</h1>
         </div>
@@ -89,6 +108,7 @@
             <a href="{{url('card_pay')}}" class="btn btn-primary"> Pay Using Card</a>
         </div>
       </div>
+      @endif
      
       <!-- footer start -->
      @include('home.footer')

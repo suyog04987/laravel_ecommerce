@@ -119,4 +119,17 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
+
+    public function delivery_status($id){
+        $status=Order::find($id);
+        if($status){
+            $status->delivery_status = 'delivered';
+            $status->payment_status='paid';
+            $status->save();
+        }else{
+            return response()->json(['message' => 'Order not found'], 404);
+        }
+
+        return redirect()->back();
+    }
 }

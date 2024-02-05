@@ -16,6 +16,15 @@
       .table{
         border: 2px solid white;
         margin-top: 15px;
+        width: 50%;
+        
+      }
+      .head{
+        background-color: blue;
+        font-size: large;
+        font-weight: bolder;
+        color: black;
+        text-align: center;
       }
     </style>
   </head>
@@ -37,7 +46,7 @@
           <table class="table">
 
 
-            <tr>
+            <tr class="head">
               <th>Name</th>
               <th>Email</th>
               <th>Address</th>
@@ -49,6 +58,7 @@
               <th>Delivery Status</th>
               <th>Image</th>
               <th>Action</th>
+              <th>Delivery</th>
               
             </tr>
 
@@ -65,6 +75,18 @@
                 <td>{{$data->delivery_status}}</td>
                 <td><img src="/productImg/{{$data->image}}" alt="" class="img_size"></td>
                 <td style="padding: 30px;"><a href="{{url('remove_order',$data->id)}}"> <button  onclick="return confirm('Are you Sure To Delete')" class="btn btn-danger">Remove</button></a></td>
+
+                
+                <td>
+                @if($data->delivery_status=='processing')
+                  <a href="{{url('delivery_status',$data->id)}}"><button class="btn btn-primary">Delivered</button></a>
+
+                  @else
+
+                  <p>Delivered</p>
+
+                  @endif
+                </td>
             </tr>
 
             @endforeach
