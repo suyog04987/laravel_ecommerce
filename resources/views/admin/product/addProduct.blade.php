@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    
-    
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Add Product</title>
     <!-- plugins:css -->
-    
+
 
     @include('admin.css')
   </head>
@@ -17,7 +17,7 @@
       <!-- partial:partials/_sidebar.html -->
      @include('admin.sidebar')
       <!-- partial -->
-      
+
         <!-- partial:partials/_navbar.html -->
        @include('admin.navbar')
         <!-- partial -->
@@ -33,7 +33,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div> 
+            </div>
         <@endif
         <form action="{{ url('add_product') }}" method="POST"   enctype="multipart/form-data" style="max-width: 500px; margin: auto;">
             @csrf
@@ -87,7 +87,7 @@
 
           </div>
         </div>
-     
+
 
     <!-- plugins:js -->
     @include('admin.js')

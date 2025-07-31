@@ -29,7 +29,7 @@
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('show_cart')}}">Cart</a>
                         </li>
-                        
+
                         <form class="form-inline">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                            <i class="fa fa-search" aria-hidden="true"></i>
@@ -38,9 +38,23 @@
                         @if (Route::has('login'))
 
                         @auth
-                        <x-app-layout>
- 
-                        </x-app-layout>
+                        <!-- User Dropdown Menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="nav-label">{{ Auth::user()->name }} <span class="caret"></span></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('profile.edit') }}">Profile</a></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                                            Logout
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                         @else
 
                         <li class="nav-item">
